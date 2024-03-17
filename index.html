@@ -17,7 +17,7 @@
             font-family: 'Poppins', sans-serif;
             color: white;
         }
-        .container{
+        /*.container{
             display: flex;
             justify-content: center ;
             background-color: black;
@@ -121,7 +121,131 @@
         select option{
             color: black;
             cursor: pointer;
-        }
+        }*/
+
+        /*
+   Adjusting the font family, text color, and background color for better readability and appearance.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.tracker-area {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.mar {
+    margin: 10px;
+}
+
+.title {
+    text-align: center;
+    padding: 10px;
+}
+
+.balance {
+    text-align: center;
+    padding: 10px;
+}
+
+.inc-exp-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.income, .expence {
+    width: 45%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-area {
+    margin: 0 auto;
+    width: 100%;
+}
+
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    padding: 7px;
+    margin: 10px 0;
+    color: black !important;
+}
+
+.expence-type {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    color: black;
+    cursor: pointer;
+}
+
+.history {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.table-area {
+    max-height: 170px;
+    overflow: auto;
+    margin: 10px auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid black;
+    padding: 5px 10px;
+    background-color: rgb(186, 186, 186);
+    z-index: 1;
+}
+
+table td {
+    text-align: center;
+    padding: 5px 10px;
+    background-color: rgb(84, 84, 84);
+    border-bottom: 1px solid black;
+}
+
+select option {
+    color: black;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .income, .expence {
+        width: 100%;
+    }
+}
     </style>
 </head>
 <body>
