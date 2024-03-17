@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expence Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+        .container{
+            display: flex;
+            justify-content: center ;
+            background-color: black;
+        }
+        .tracker-area{
+            margin: 30px auto;
+            width: 50%;
+        }
+        .tracker-area .title{
+            text-align: center;
+            padding: 10px;
+        }
+        .tracker-area .balance{
+            text-align: center;
+            padding: 10px;
+        }
+        hr {
+            border: none; 
+            height: 1px; 
+            background-color: black;
+        }
+        .tracker-area .inc-exp-container{
+            display: flex;
+            padding: 10px;
+        }
+        .tracker-area .inc-exp-container .income{
+            flex: 1;
+            text-align: center;
+        }
+        .tracker-area .inc-exp-container .expence{
+            flex: 1;
+            text-align: center;
+        }
+        
+        .tracker-area .expence-type{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .center{
+            display: flex;
+            justify-content: center;
+        }
+        input[type="text"],input[type="number"],select{
+            width: 70%;
+            border-radius: 10px;
+            border: none;
+            padding: 7px;
+            margin: 10px;
+            color: black !important;
+            cursor: pointer;
+        }
+        input[type="radio"]{
+            cursor: pointer;
+        }
+        .btn{
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+            color: black;
+            cursor: pointer;
+        }
+        .table-area{
+            padding-left: 10%;
+            max-height: 170px;
+            overflow: auto;
+            width: 70%;
+            margin: 10px auto;
+        }
+        ::-webkit-scrollbar {
+            width: 1;
+        }
+
+        table{
+            border-collapse: collapse;
+        }
+        table th{
+            position: sticky;
+            top: 0;
+            border-bottom: 1px solid black;
+            padding: 5px 10px;
+            background-color: rgb(186, 186, 186);
+            z-index: 1;
+
+        }
+
+        table td{
+            text-align: center;
+            padding: 5px 10px;
+            background-color:rgb(84, 84, 84) ;
+            border-bottom: 1px solid black;
+        }
+
+        .tracker-area .mar{
+            margin: 10px;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: rgb(63, 63, 63);
+        }
+
+        select option{
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tracker-area">
+            <div class="title" ><h1>Expence Tracker</h1></div>
+            <div class="balance mar">
+                <h2>Your Balance <br> ₹<span id="bal"></span></h2>
+            </div>
+            <div class="inc-exp-container mar">
+                <div class="income">
+                    <h4>Income</h4>
+                    <p id="money-plus" class="money plus">+₹<span id="inc"></span></p>
+                </div>
+                <div class="expence">
+                    <h4>Spent</h4>
+                    <p id="money-minus" class="money minus">-₹<span id="spe"></span></p>
+                </div>
+            </div>
+            <div class="form-area mar">
+                <div class="form-title" style="text-align:center"><h3>Add New Transaction</h3></div>
+                <form id="myForm">
+                    <div style="border: 1px solid black; width:70%;margin:10px auto;border-radius: 10px;">
+                        <div class="expence-type">
+                            <div><input  type="radio" id="income" name="expence" value="income"> <label for="income" style="cursor: pointer;"> Income</label></div>
+                            <div><input  type="radio" id="spent" name="expence" value="spent"> <label for="spent" style="cursor: pointer;"> spent</label></div>
+                        </div>
+                        <div>
+                            <div class="center">
+                                <input type="text" name="description" id="description" placeholder="Enter the Description" >
+                                <input type="number" name="amount" id="amount" placeholder="Enter the Amount" >
+                            </div>
+                            <div class="center">
+                                <select name="transaction" id="menu">
+                                    <option value="select" selected>Select Transaction</option>
+                                    <option value="cash">Cash</option>
+                                    <option value="card">Card</option>
+                                </select>
+                            </div>
+                            <div class="center">
+                                <button class="btn" id="submit" onclick="addTransaction()">Add Transaction</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="history mar">
+                <div style="text-align:center; display:block;"><h2>Transaction History</h2></div>
+                <div class="table-area">
+                    <table id="table">
+                    
+                    </table>
+                </div>
+            </div>
+        </div>
+    <script src="./script.js">
+    </script>
+</body>
+</html>
